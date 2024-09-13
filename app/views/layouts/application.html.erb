@@ -18,9 +18,11 @@
   </head>
 
   <body class="h-full">
-    <p class="notice"><%= notice %></p>
     <% if alert %>
-      <div class="alert p-4 m-2 text-sm text-indigo-800 rounded-lg bg-indigo-50"><%= alert %></div>
+      <div class="alert p-4 m-2 text-sm text-red-800 rounded-lg bg-red-50"><%= alert %></div>
+    <% end %>
+    <% if notice %>
+      <div class="notice p-4 m-2 text-sm text-indigo-800 rounded-lg bg-indigo-50"><%= notice %></div>
     <% end %>
     <%= yield %>
   </body>
