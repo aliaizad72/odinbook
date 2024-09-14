@@ -99,7 +99,7 @@
       </div>
 
       <div class="actions col-span-6 sm:flex sm:items-center sm:gap-4 place-content-between">
-        <%= f.submit "Sign Up", class: "inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"%>
+        <%= f.submit "Sign Up", data: { turbo_frame: "_top"}, class: "inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"%>
         <p class="mt-4 text-sm text-gray-500 sm:mt-0">
           Already a member?
           <%= link_to "Sign In", new_user_session_path, class: "font-semibold leading-6 text-blue-600 hover:text-blue-500" %>
