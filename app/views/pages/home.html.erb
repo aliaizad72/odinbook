@@ -1,21 +1,16 @@
 <%= render "shared/navbar" %>
+<%= render "shared/flash" %>
 <div class="w-3/5 mx-auto">
   <div class="overflow-hidden">
-    <textarea
-      id="OrderNotes"
-      class="w-full resize-none border-x-0 border-t-0 border-gray-200 px-0 align-top sm:text-sm"
-      rows="3"
-      placeholder="What's the buzz?"
-    ></textarea>
-
-    <div class="flex items-center justify-end gap-2 py-3">
-      <button
-        type="button"
-        class="rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700"
-      >
-        Post
-      </button>
-    </div>
+    <%= form_with model: @post do |form| %>
+      <%= form.text_area :body, rows: 3,  placeholder: "What's the buzz?", class: "text-sm w-full resize-none border-x-0 border-t-0 border-gray-200 px-0 align-top sm:text-sm" %>
+      <div class="flex items-center justify-end gap-2 py-3">
+        <%= submit_tag "Post", class: "rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700" %>
+      </div>
+    <% end %>
   </div>
 </div>
+<% @posts.each do |p| %>
+  <div><%= p.body %></div>
+<% end %>
 
