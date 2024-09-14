@@ -14,7 +14,7 @@
       <nav aria-label="Global" class="hidden md:block">
         <ul class="flex items-center gap-6 text-sm">
           <li>
-            <a class="text-gray-500 transition hover:text-blue-500/75" href="#"> My Profile </a>
+            <a class="text-gray-500 transition hover:text-blue-500/75" href="">@<%= current_user.username %></a>
           </li>
         </ul>
       </nav>
@@ -46,4 +46,3 @@
     </div>
   </div>
 </header>
-<%= render "shared/flash" %>
