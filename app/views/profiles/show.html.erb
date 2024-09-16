@@ -1,0 +1,23 @@
+<%= render "shared/navbar" %>
+<div class="grid grid-cols-3 grid-rows-5 gap-4 w-2/3 mx-auto mt-5">
+  <div class="col-span-2 grid grid-cols-1 grid-rows-1 gap-4 py-3 px-4 bg-white shadow-sm border border-slate-200 rounded-lg ">
+    <div class="flex items-center justify-between">
+      <div class="text-3xl">@<%= @user.username %></div>
+      <a href="" class="transition hover:text-blue-500">Follow</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <div>
+        <%= @user.posts.count %> Posts
+      </div>
+      <div>
+        <%= @user.followers.count %> Followers
+      </div>
+      <div>
+        <%= @user.followings.count %> Following
+      </div>
+    </div>
+  </div>
+  <div class="col-span-2 col-start-1 row-start-2">2</div>
+  <div class="col-span-2 row-span-3 col-start-1 row-start-3">4</div>
+  <div class="row-span-2 col-start-3 row-start-1">5</div>
+</div>
