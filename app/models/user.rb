@@ -12,6 +12,4 @@ class User < ApplicationRecord
   has_many :followers, through: :followers_rel
 
   validates :username, presence: true, uniqueness: true
-
-
 end

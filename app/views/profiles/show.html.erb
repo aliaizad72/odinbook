@@ -4,10 +4,12 @@
   <div class="col-span-2 grid grid-cols-1 grid-rows-1 gap-4 py-4 px-4 bg-white shadow-sm border border-slate-200 rounded-lg">
     <div class="flex items-center justify-between">
       <div class="text-3xl">@<%= @user.username %></div>
-      <% if current_user.followings.include?(@user) %>
-        <a href="" class="transition hover:text-blue-500">Unfollow</a>
-      <% else %>
-        <a href="" class="transition hover:text-blue-500">Follow</a>
+      <% if current_user != @user %>
+        <% if current_user.followings.include?(@user)  %>
+          <%= link_to "Unfollow", delete_following_path(@user), data: { turbo: false } %>
+        <% else %>
+          <%= link_to "Follow", add_following_path(@user), data: { turbo: false } %>
+        <% end %>
       <% end %>
     </div>
     <div class="flex items-center gap-3">
