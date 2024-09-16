@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     flash[:notice] = "Cannot post empty contents :/" if @post.invalid?
     @post.save
-    redirect_to root_path
+    redirect_back_or_to root_path
   end
 
   private

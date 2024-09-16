@@ -2,14 +2,7 @@
 <%= render "shared/flash" %>
 <div class="grid grid-cols-3 grid-rows-6 gap-4 w-2/3 mx-auto mt-5">
   <div class="col-span-2">
-    <div class="overflow-hidden">
-      <%= form_with model: @post do |form| %>
-        <%= form.text_area :body, rows: 3,  placeholder: "What's the buzz?", class: "w-full resize-none border-x-0 border-t-0 border-gray-200 px-0 align-top sm:text-base" %>
-        <div class="flex items-center justify-end gap-2 py-3">
-          <%= submit_tag "Post", class: "rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700" %>
-        </div>
-      <% end %>
-    </div>
+    <%= render 'shared/postform' %>
   </div>
   <div class="row-span-6 col-start-3">1</div>
   <div class="col-span-2 row-span-5 row-start-2">
