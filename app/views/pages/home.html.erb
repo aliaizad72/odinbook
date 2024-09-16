@@ -1,16 +1,41 @@
 <%= render "shared/navbar" %>
 <%= render "shared/flash" %>
-<div class="w-3/5 mx-auto">
-  <div class="overflow-hidden">
-    <%= form_with model: @post do |form| %>
-      <%= form.text_area :body, rows: 3,  placeholder: "What's the buzz?", class: "text-sm w-full resize-none border-x-0 border-t-0 border-gray-200 px-0 align-top sm:text-sm" %>
-      <div class="flex items-center justify-end gap-2 py-3">
-        <%= submit_tag "Post", class: "rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700" %>
-      </div>
+<div class="grid grid-cols-3 grid-rows-6 gap-4 w-2/3 mx-auto mt-5">
+  <div class="col-span-2">
+    <div class="overflow-hidden">
+      <%= form_with model: @post do |form| %>
+        <%= form.text_area :body, rows: 3,  placeholder: "What's the buzz?", class: "w-full resize-none border-x-0 border-t-0 border-gray-200 px-0 align-top sm:text-base" %>
+        <div class="flex items-center justify-end gap-2 py-3">
+          <%= submit_tag "Post", class: "rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row-span-6 col-start-3">1</div>
+  <div class="col-span-2 row-span-5 row-start-2">
+    <div class="relative flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg">
+    <% @posts.each_with_index do |p, ind| %>
+        <div class="p-4 <%= "border-t-2 border-slate-100" unless ind.zero?%>">
+          <h5 class="mb-2 text-slate-600 text-sm">
+            @<%= p.user.username %>
+          </h5>
+          <p class="text-slate-600 leading-normal">
+            <%= p.body %>
+          </p>
+        </div>
+        <div class="flex justify-between mx-3 border-t border-slate-200 pb-3 pt-2 px-1">
+          <div class="flex gap-3 text-sm text-slate-600">
+            <a href="">Like</a>
+            <a href="">Comment</a>
+          </div>
+          <div class="text-sm text-slate-600 font-light">
+            <%= p.created_at.strftime("%H:%M, #{p.created_at.day.ordinalize} %B %Y") %>
+          </div>
+        </div>
     <% end %>
+    </div>
   </div>
 </div>
-<% @posts.each do |p| %>
-  <div><%= p.body %></div>
-<% end %>
+
+
 
