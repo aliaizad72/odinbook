@@ -1,11 +1,9 @@
 <h2 class="text-2xl text-gray-800 pb-3"><%= list_title %></h2>
 <div class="relative flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg">
   <% list.each_with_index do |p, ind| %>
-    <div class="p-4 <%= "border-t-2 border-slate-100" unless ind.zero?%>">
-      <h5 class="mb-2 text-gray-700 text-sm">
-        @<%= p.user.username %>
-      </h5>
-      <p class="text-gray-800 leading-normal">
+    <div class="p-4 flex flex-col gap-0.5 justify-center <%= "border-t-2 border-slate-100" unless ind.zero?%>">
+      <%= link_to "@#{p.user.username}", profile_path(p.user), class: "mb-2 text-gray-700 text-sm" %>
+      <p class="text-gray-800">
         <%= p.body %>
       </p>
     </div>
