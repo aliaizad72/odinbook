@@ -9,6 +9,7 @@
     <div class="relative flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg w-96">
       <div class="mx-3 mb-0 pt-3 pb-3 px-1">
         <% @users.each do |user| %>
+          <% next if current_user.followings.include?(user) %>
           <div class="text-sm text-gray-700 border-b border-slate-200 py-2 flex justify-between">
             <%= link_to "@#{user.username}", profile_path(user), class: "text-sm text-gray-700" %>
             <a href="" class="text-sm text-gray-700">Follow</a>
