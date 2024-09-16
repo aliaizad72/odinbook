@@ -6,28 +6,7 @@
   </div>
   <div class="row-span-6 col-start-3">1</div>
   <div class="col-span-2 row-span-5 row-start-2">
-    <h2 class="text-2xl text-slate-600 pb-3">Your Feed</h2>
-    <div class="relative flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg">
-    <% @posts.each_with_index do |p, ind| %>
-        <div class="p-4 <%= "border-t-2 border-slate-100" unless ind.zero?%>">
-          <h5 class="mb-2 text-slate-600 text-sm">
-            @<%= p.user.username %>
-          </h5>
-          <p class="text-slate-600 leading-normal">
-            <%= p.body %>
-          </p>
-        </div>
-        <div class="flex justify-between mx-3 border-t border-slate-200 pb-3 pt-2 px-1">
-          <div class="flex gap-3 text-sm text-slate-600">
-            <a href="">Like</a>
-            <a href="">Comment</a>
-          </div>
-          <div class="text-sm text-slate-600 font-light">
-            <%= p.created_at.strftime("%H:%M, #{p.created_at.day.ordinalize} %B %Y") %>
-          </div>
-        </div>
-    <% end %>
-    </div>
+    <%= render 'shared/postlist', list_title: "Your Feed", list: @posts %>
   </div>
 </div>
 

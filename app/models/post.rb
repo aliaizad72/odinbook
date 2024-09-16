@@ -3,5 +3,7 @@ class Post < ApplicationRecord
 
   validates :body, presence: true, length: { maximum: 140 }
 
-  scope :all_posts, -> { all.order(created_at: :desc) }
+  scope :order_recent, -> { order(created_at: :desc) }
+  scope :all_posts, -> { all.order_recent }
+  scope :user_posts, ->(id) { where(user_id: id).order_recent }
 end

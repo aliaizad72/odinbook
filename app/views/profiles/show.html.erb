@@ -18,9 +18,13 @@
       </div>
     </div>
   </div>
-  <div class="col-span-2 col-start-1 row-start-2">
+  <% if current_user == @user %>
+    <div class="col-span-2 col-start-1 row-start-2 mt-2">
       <%= render "shared/postform" %>
+    </div>
+  <% end %>
+  <div class="col-span-2 row-span-3 col-start-1 row-start-3">
+    <%= render 'shared/postlist', list_title: "Posts", list: @posts %>
   </div>
-  <div class="col-span-2 row-span-3 col-start-1 row-start-3">4</div>
   <div class="row-span-2 col-start-3 row-start-1">5</div>
 </div>
