@@ -1,4 +1,6 @@
 class FollowsController < ApplicationController
+
+  before_action :authenticate_user!
   def add_following
     @user = User.find_by(id: params[:id])
     current_user.followings << @user
