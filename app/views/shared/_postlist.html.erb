@@ -9,7 +9,11 @@
     </div>
     <div class="flex justify-between mx-3 border-t border-slate-200 pb-3 pt-2 px-1">
       <div class="flex gap-3 text-sm text-slate-600">
-        <%= link_to "Like", like_path(post), class: "transition hover:text-blue-700", data: { turbo: false } %>
+        <% if current_user.liked_posts.include?(post) %>
+          <%= link_to "Unlike", unlike_path(post), class: " text-blue-700 transition hover:text-slate-600", data: { turbo: false } %>
+        <% else %>
+          <%= link_to "Like", like_path(post), class: "transition hover:text-blue-700", data: { turbo: false } %>
+        <% end %>
         <a href="" class="transition hover:text-blue-700">Comment</a>
       </div>
       <div class="text-sm text-slate-600 font-light">
