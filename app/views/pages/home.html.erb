@@ -2,7 +2,7 @@
 <%= render "shared/flash" %>
 <div class="grid grid-cols-3 grid-rows-6 gap-5 w-2/3 mx-auto mt-5">
   <div class="col-span-3">
-    <%= render 'shared/postform' %>
+    <%= render 'shared/form', model: @post, placeholder: "What's the buzz?" %>
   </div>
   <div class="row-span-6 col-start-3 row-start-2">
     <%= render "shared/userslist", list_title: "Other Users", list: @users, message: "You followed everyone!" %>
