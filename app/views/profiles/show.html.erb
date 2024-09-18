@@ -6,18 +6,18 @@
       <div class="text-3xl">@<%= @user.username %></div>
       <% if current_user != @user %>
         <% if current_user.followings.include?(@user)  %>
-          <%= link_to "Unfollow", unfollow_path(@user), data: { turbo: false } %>
+          <%= button_to "Unfollow", unfollow_path(@user), method: :get, data: { turbo: false }, class: "rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700" %>
         <% else %>
-          <%= link_to "Follow", follow_path(@user), data: { turbo: false } %>
+          <%= button_to "Follow", follow_path(@user), method: :get, data: { turbo: false }, class: "rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700"%>
         <% end %>
       <% end %>
     </div>
     <div class="flex items-center gap-3">
       <div>
-        <%= link_to "#{pluralize(@user.posts.count, "Post")}" %>
+        <%= link_to "#{pluralize(@user.posts.count, "Post")}", profile_path(@user), class: "transition hover:text-blue-700" %>
       </div>
       <div>
-        <%= link_to "#{pluralize(@user.followers.count, "Follower")}", followers_profile_path(@user), data: { turbo_frame: "list-region" } %>
+        <%= link_to "#{pluralize(@user.followers.count, "Follower")}", followers_profile_path(@user), data: { turbo_frame: "list-region" }, class: "transition hover:text-blue-700" %>
       </div>
       <div>
         <%= @user.followings.count %> Following
