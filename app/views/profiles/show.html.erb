@@ -14,10 +14,10 @@
     </div>
     <div class="flex items-center gap-3">
       <div>
-        <%= @user.posts.count %> Posts
+        <%= link_to "#{pluralize(@user.posts.count, "Post")}" %>
       </div>
       <div>
-        <%= @user.followers.count %> Followers
+        <%= link_to "#{pluralize(@user.followers.count, "Follower")}", followers_profile_path(@user), data: { turbo_frame: "list-region" } %>
       </div>
       <div>
         <%= @user.followings.count %> Following
@@ -30,7 +30,9 @@
     </div>
   <% end %>
   <div class="col-span-2 row-span-3 col-start-1 row-start-3">
-    <%= render 'shared/postlist', list_title: "Posts", list: @posts %>
+    <%= turbo_frame_tag "list-region" do %>
+      <%= render 'shared/postlist', list_title: "Posts", list: @posts %>
+    <% end %>
   </div>
   <div class="row-span-2 col-start-3 row-start-1">5</div>
 </div>

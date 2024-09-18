@@ -5,4 +5,8 @@ class ProfilesController < ApplicationController
     @post = Post.new
     @posts = Post.user_posts(@user.id)
   end
+
+  def followers
+    @followers = User.find_by(id: params[:id]).followers
+  end
 end
