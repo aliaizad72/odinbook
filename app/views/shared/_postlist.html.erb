@@ -1,12 +1,13 @@
 <h2 class="text-2xl text-gray-800 pb-3"><%= list_title %></h2>
 <div class="relative flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg">
   <% list.each_with_index do |post, ind| %>
-    <div class="p-4 flex flex-col gap-0.5 justify-center <%= "border-t-2 border-slate-100" unless ind.zero?%>">
+    <div class="p-4 pb-2 flex flex-col gap-0.5 justify-center <%= "border-t-2 border-slate-100" unless ind.zero?%>">
       <%= link_to "@#{post.user.username}", profile_path(post.user), class: "mb-2 text-gray-700 text-sm" %>
       <p class="text-gray-800">
         <%= post.body %>
       </p>
     </div>
+    <%= content_tag :div, "#{pluralize(post.likes.count, 'like')}", class: "text-slate-600 px-4 pb-1 text-xs" %>
     <div class="flex justify-between mx-3 border-t border-slate-200 pb-3 pt-2 px-1">
       <div class="flex gap-3 text-sm text-slate-600">
         <% if current_user.liked_posts.include?(post) %>
