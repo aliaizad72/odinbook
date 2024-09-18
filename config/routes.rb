@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "pages/home"
 
-  get "follow/:id", to: "follows#follow", as: "follow"
-  get "unfollow/:id", to: "follows#unfollow", as: "unfollow"
+  post "follow/:id", to: "follows#follow", as: "follow"
+  delete "follow/:id", to: "follows#unfollow", as: "unfollow"
 
-  get "like/:id", to: "likes#like", as: "like"
-  get "unlike/:id", to: "likes#unlike", as: "unlike"
+  post "like/:id", to: "likes#like", as: "like"
+  delete "like/:id", to: "likes#unlike", as: "unlike"
 
   resources :posts
 
