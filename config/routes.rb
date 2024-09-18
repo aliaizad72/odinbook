@@ -4,14 +4,19 @@ Rails.application.routes.draw do
   root "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "pages/home"
+
   get "follow/:id", to: "follows#follow", as: "follow"
   get "unfollow/:id", to: "follows#unfollow", as: "unfollow"
+
   get "like/:id", to: "likes#like", as: "like"
   get "unlike/:id", to: "likes#unlike", as: "unlike"
+
   resources :posts
+
   resources :profiles, only: :show do
     member do
       get "followers"
+      get "followings"
     end
   end
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

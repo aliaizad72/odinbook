@@ -9,4 +9,7 @@ class ProfilesController < ApplicationController
   def followers
     @followers = User.find_by(id: params[:id]).followers
   end
+  def followings
+    @followings = User.find_by(id: params[:id]).followings
+  end
 end

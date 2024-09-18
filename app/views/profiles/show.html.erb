@@ -20,7 +20,7 @@
         <%= link_to "#{pluralize(@user.followers.count, "Follower")}", followers_profile_path(@user), data: { turbo_frame: "list-region" }, class: "transition hover:text-blue-700" %>
       </div>
       <div>
-        <%= @user.followings.count %> Following
+        <%= link_to "#{pluralize(@user.followings.count, "Following")}", followings_profile_path(@user), data: { turbo_frame: "list-region" }, class: "transition hover:text-blue-700" %>
       </div>
     </div>
   </div>

@@ -13,5 +13,5 @@ class User < ApplicationRecord
   has_many :followers_rel, foreign_key: :following_id, class_name: "Follow"
   has_many :followers, through: :followers_rel
 
-  validates :username, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true, length: { maximum: 15 }
 end
