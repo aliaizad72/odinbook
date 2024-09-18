@@ -1,0 +1,17 @@
+<h2 class="text-2xl text-gray-800 pb-3"><%= list_title %></h2>
+<% if list.empty? %>
+  <div class="notice p-4 m-2 mx-auto text-sm text-blue-800 rounded-lg bg-blue-50"><%= message %></div>
+<% else %>
+  <div class="relative flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg">
+    <div class="mx-3 mb-0 pt-3 pb-3 px-1">
+      <% list.each do |user| %>
+        <div class="text-sm text-gray-700 border-b border-slate-200 py-2 flex justify-between">
+          <%= link_to "@#{user.username}", profile_path(user), data: { turbo_frame: "_top" }, class: "transition hover:text-blue-700" %>
+          <% if current_user.followings.exclude?(user) && current_user != user %>
+            <%= button_to "Follow", follow_path(user), data: { turbo: false }, class: "transition hover:text-blue-700" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
