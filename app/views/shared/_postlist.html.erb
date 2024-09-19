@@ -10,7 +10,10 @@
           <%= link_to "#{post.body}", post_path(post), data: { turbo_frame: "_top" } %>
         </p>
       </div>
-      <%= content_tag :div, "#{pluralize(post.likes.count, 'like')}", class: "text-slate-600 px-4 pb-1 text-xs" %>
+      <div class="flex pl-4 pb-1 gap-2 text-slate-600 text-xs">
+        <%= content_tag :div, "#{pluralize(post.likes.count, 'like')}" %>
+        <%= content_tag :div, "#{pluralize(post.comments.count, 'comment')}" %>
+      </div>
       <div class="flex justify-between mx-3 border-t border-slate-200 pb-3 pt-2 px-1">
         <div class="flex gap-3 text-sm text-slate-600">
           <% if current_user.liked_posts.include?(post) %>

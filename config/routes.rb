@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   delete "like/:id", to: "likes#unlike", as: "unlike"
 
   resources :posts
+  resources :comments
 
   resources :profiles, only: :show do
     member do
