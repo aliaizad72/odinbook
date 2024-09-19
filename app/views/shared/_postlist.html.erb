@@ -12,7 +12,7 @@
       </div>
       <div class="flex pl-4 pb-1 gap-2 text-slate-600 text-xs">
         <%= content_tag :div, "#{pluralize(post.likes.count, 'like')}" %>
-        <%= content_tag :div, "#{pluralize(post.comments.count, 'comment')}" %>
+        <%= link_to "#{pluralize(post.comments.count, 'comment')}", post_path(post), class: "transition hover:text-blue-700" %>
       </div>
       <div class="flex justify-between mx-3 border-t border-slate-200 pb-3 pt-2 px-1">
         <div class="flex gap-3 text-sm text-slate-600">
@@ -21,7 +21,7 @@
           <% else %>
             <%= link_to "Like", like_path(post), data: { turbo_method: :post }, class: "transition hover:text-blue-700" %>
           <% end %>
-          <a href="" class="transition hover:text-blue-700">Comment</a>
+          <%= link_to "Comment", post_path(post), class: "transition hover:text-blue-700" %>
         </div>
         <div class="text-sm text-slate-600 font-light">
           <%= post.created_at.strftime("%H:%M, #{post.created_at.day.ordinalize} %B %Y") %>
