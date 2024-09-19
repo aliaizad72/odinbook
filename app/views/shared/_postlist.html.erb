@@ -11,7 +11,7 @@
         </p>
       </div>
       <div class="flex pl-4 pb-1 gap-2 text-slate-600 text-xs">
-        <%= content_tag :div, "#{pluralize(post.likes.count, 'like')}" %>
+        <%= link_to "#{pluralize(post.likes.count, 'like')}", post_path(post), class: "transition hover:text-blue-700" %>
         <%= link_to "#{pluralize(post.comments.count, 'comment')}", post_path(post), class: "transition hover:text-blue-700" %>
       </div>
       <div class="flex justify-between mx-3 border-t border-slate-200 pb-3 pt-2 px-1">

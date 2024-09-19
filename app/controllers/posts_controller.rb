@@ -13,6 +13,10 @@ class PostsController < ApplicationController
     redirect_back_or_to root_path
   end
 
+  def liked_by
+    @post = Post.find_by(id: params[:id])
+  end
+
   private
 
   def post_params
