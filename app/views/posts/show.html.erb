@@ -1,7 +1,7 @@
 <%= render 'shared/navbar' %>
 <%= render "shared/flash" %>
-<div class="grid grid-cols-2 auto-rows-min gap-4 w-2/3 mx-auto mt-5">
-  <div class="col-span-2 relative flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg">
+<div class="grid grid-cols-1 md:grid-cols-3 auto-rows-min gap-4 md:w-4/5 mx-auto mt-5 px-5">
+  <div class="md:col-span-3 relative flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg">
     <div class="p-4 pb-2 flex flex-col gap-0.5 justify-center" >
       <%= link_to "@#{@post.user.username}", profile_path(@post.user), class: "mb-2 text-gray-700 transition hover:text-blue-700" %>
       <p class="text-gray-800">
@@ -9,10 +9,10 @@
       </p>
     </div>
     <div class="flex pl-4 pb-1 gap-2 text-slate-600 text-sm">
-      <%= link_to "#{pluralize(@post.likes.count, 'like')}", liked_by_post_path(@post), data: { turbo_frame: "posts-list-region"}, class: "transition hover:text-blue-700" %>
-      <%= link_to "#{pluralize(@post.comments.count, 'comment')}", class: "transition hover:text-blue-700" %>
+      <div><%= "#{pluralize(@post.likes.count, 'like')}" %></div>
+      <div><%= "#{pluralize(@post.comments.count, 'comment')}" %></div>
     </div>
-    <div class="flex justify-between mx-3 border-t border-slate-200 pb-3 pt-2 px-1">
+    <div class="md:flex justify-between mx-3 border-t border-slate-200 pb-3 pt-2 px-1">
       <div class="flex gap-3 text-slate-600">
         <% if current_user.liked_posts.include?(@post) %>
           <%= link_to "Unlike", unlike_path(@post), data: { turbo_method: :delete }, class: " text-blue-700 transition hover:text-slate-600" %>
@@ -20,12 +20,12 @@
           <%= link_to "Like", like_path(@post), data: { turbo_method: :post }, class: "transition hover:text-blue-700" %>
         <% end %>
       </div>
-      <div class="text-base text-slate-600 font-light">
+      <div class="text-base text-slate-600 font-light md:p-0">
         <%= @post.created_at.strftime("%H:%M, #{@post.created_at.day.ordinalize} %B %Y") %>
       </div>
     </div>
   </div>
-  <div class="col-span-2">
+  <div class="md:col-span-3">
     <%= form_with model: @comment, url: post_comments_path(@post), class: "overflow-hidden" do |form| %>
       <%= form.text_area :body, rows: 3, autofocus: true,  placeholder: "Comment here", class: "w-full resize-none border-x-0 border-t-0 border-gray-200 px-0 align-top sm:text-base" %>
       <%= form.hidden_field :post_id, value: params[:id] %>
@@ -34,9 +34,10 @@
       </div>
     <% end %>
   </div>
-  <div class="col-span-2 row-span-3 col-start-1 row-start-3">
-    <%= turbo_frame_tag "posts-list-region" do %>
-      <%= render "shared/commentslist" %>
-    <% end %>
+  <div class="md:col-span-2 md:row-start-3">
+     <%= render "shared/commentslist" %>
+  </div>
+  <div class="md:col-start-3 md:row-start-3">
+    <%= render "shared/userslist", list_title: "Liked By", list: @post.liked_users, message: "Currently do not have any likes!" %>
   </div>
 </div>

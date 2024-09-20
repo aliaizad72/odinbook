@@ -13,9 +13,6 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments
-    member do
-      get "liked_by"
-    end
   end
 
   resources :profiles, only: :show do

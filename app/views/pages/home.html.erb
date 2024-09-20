@@ -1,14 +1,14 @@
 <%= render "shared/navbar" %>
 <%= render "shared/flash" %>
-<div class="grid grid-cols-3 grid-rows-6 gap-5 w-2/3 mx-auto mt-5">
-  <div class="col-span-3">
+<div class="grid grid-cols-1 md:grid-cols-3 auto-rows-min gap-5 md:w-4/5 mx-auto mt-5 px-5">
+  <div class="md:col-span-3">
     <%= render 'shared/form', model: @post, placeholder: "What's the buzz?" %>
   </div>
-  <div class="row-span-6 col-start-3 row-start-2">
-    <%= render "shared/userslist", list_title: "Other Users", list: @users, message: "You followed everyone!" %>
-  </div>
-  <div class="col-span-2 row-span-5 row-start-2">
+  <div class="md:col-span-2 md:row-start-2">
     <%= render 'shared/postlist', list_title: "Your Feed", list: @posts %>
+  </div>
+  <div>
+    <%= render "shared/userslist", list_title: "Other Users", list: @users, message: "You followed everyone!" %>
   </div>
 </div>
 
