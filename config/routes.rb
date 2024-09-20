@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations"
+  }
   # Defines the root path route ("/")
   root "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -15,9 +17,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :profiles, only: :show do
+  resources :profiles, only: [ :show, :edit, :update ] do
     member do
-      get "followers"
       get "followings"
     end
   end

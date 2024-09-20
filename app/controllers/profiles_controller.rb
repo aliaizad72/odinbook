@@ -6,9 +6,10 @@ class ProfilesController < ApplicationController
     @posts = Post.user_posts(@user.id)
   end
 
-  def followers
-    @followers = User.find_by(id: params[:id]).followers
+  def edit
+    @user = User.find_by(id: params[:id])
   end
+
   def followings
     @followings = User.find_by(id: params[:id]).followings
   end
