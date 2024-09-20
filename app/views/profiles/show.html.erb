@@ -1,7 +1,6 @@
 <%= render "shared/navbar" %>
 <%= render "shared/flash" %>
-<div class="pb-5 md:w-4/5 px-5 mx-auto mt-5">
-  <%= turbo_frame_tag "profile-action", class: "grid grid-cols-1 auto-rows-min gap-4 md:grid-cols-3" do %>
+  <%= turbo_frame_tag "profile-action", class: "grid grid-cols-1 auto-rows-min gap-4 md:grid-cols-3 pb-5 md:w-4/5 px-5 mx-auto mt-5" do %>
     <div class="grid grid-cols-1 gap-4 py-4 px-3 bg-white shadow-sm border border-slate-200 rounded-lg md:col-span-3 md:row-start-1">
       <div class="min-[310px]:flex  items-center justify-between">
         <div class="text-2xl">@<%= @user.username %></div>
@@ -13,7 +12,7 @@
               <%= button_to "Follow", follow_path(@user), data: { turbo: false }, class: "rounded bg-blue-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-blue-700"%>
             <% end %>
           <% else %>
-            <%= link_to "Edit Profile", profile_path(@user), data: { turbo_frame: "_top" }, class: "rounded bg-blue-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-blue-700"  %>
+            <%= link_to "Edit Profile", edit_user_registration_path, data: { turbo_frame: "_top" }, class: "rounded bg-blue-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-blue-700"  %>
           <% end %>
         </div>
 
@@ -44,4 +43,3 @@
       <% end %>
     </div>
   <% end %>
-</div>
