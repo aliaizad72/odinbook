@@ -5,7 +5,10 @@
   <div class="relative flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg">
     <% list.each_with_index do |post, ind| %>
       <div class="p-4 pb-2 flex flex-col gap-0.5 justify-center <%= "border-t-2 border-slate-100" unless ind.zero?%>">
-        <%= link_to "@#{post.user.username}", profile_path(post.user), class: "mb-2 text-gray-700 text-sm transition hover:text-blue-700" %>
+        <%= link_to profile_path(post.user), class: "flex items-center justify-between text-gray-700 text-sm transition hover:text-blue-700" do %>
+          <p><%= "@#{post.user.username}" %></p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-gray-500" width="2rem"><path d="M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" /></svg>
+        <% end %>
         <p class="text-gray-800">
           <%= link_to "#{post.body}", post_path(post), data: { turbo_frame: "_top" } %>
         </p>
