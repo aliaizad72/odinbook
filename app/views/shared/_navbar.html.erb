@@ -10,13 +10,16 @@
       </svg>
     </a>
 
-    <div class="flex flex-1 items-center justify-between">
+    <div class="flex flex-1 items-center justify-end gap-4 md:gap-8">
       <nav aria-label="Global" class="md:block">
-        <ul class="flex items-center gap-6 text-sm">
-          <li>
-            <%= link_to "@#{current_user.username}", profile_path(current_user), class: "transition hover:text-blue-700 text-gray-800 text-base" %>
-          </li>
+        <%= link_to profile_path(current_user), class: "transition hover:fill-blue-500 hover:text-blue-700 text-gray-800 text-base" do %>
+        <ul class="flex items-center gap-2 md:gap-4 text-sm">
+          <%= render "shared/profile" %>
+            <li>
+              <%= "@#{current_user.username}" %>
+            </li>
         </ul>
+        <% end %>
       </nav>
 
       <div class="flex items-center gap-4">
