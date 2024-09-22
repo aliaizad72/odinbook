@@ -8,7 +8,11 @@
         <div class="text-sm text-gray-700 border-b border-slate-200 py-2 flex justify-between">
           <%= link_to profile_path(user), data: { turbo_frame: "_top" }, class: "flex items-center justify-start gap-2 transition hover:text-blue-700" do %>
             <p><%= "@#{user.username}" %></p>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-gray-500" width="1.2rem"><path d="M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" /></svg>
+            <% if user.avatar.attached? %>
+              <%= image_tag user.avatar.variant(resize_to_fill: [19.2, 19.2]).processed, class: "rounded-full" %>
+            <% else %>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-gray-500" width="1.2rem"><path d="M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" /></svg>
+            <% end %>
           <% end %>
           <% if current_user.followings.exclude?(user) && current_user != user %>
             <%= button_to "Follow", follow_path(user), data: { turbo: false }, class: "transition hover:text-blue-700" %>
