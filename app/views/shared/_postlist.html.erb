@@ -14,7 +14,7 @@
           <% end %>
         <% end %>
         <p class="text-gray-800">
-          <%= link_to "#{post.body}", post_path(post), data: { turbo_frame: "_top" } %>
+          <%= link_to "#{post.body}", post_path(post), data: { turbo_frame: "_top" }, class: "break-words" %>
         </p>
       </div>
       <div class="flex pl-4 pb-1 gap-2 text-slate-600 text-xs">

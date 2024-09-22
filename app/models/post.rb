@@ -6,7 +6,7 @@ class Post < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
-  validates :body, presence: true, length: { maximum: 140 }
+  validates :body, presence: true, length: { maximum: 250 }
 
   scope :order_recent, -> { order(created_at: :desc) }
   scope :all_posts, -> { all.order_recent }

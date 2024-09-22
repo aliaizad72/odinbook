@@ -1,5 +1,5 @@
 <%= form_with model: model, class: "overflow-hidden" do |form| %>
-  <%= form.text_area :body, rows: 3,  placeholder: placeholder, class: "w-full resize-none border-x-0 border-t-0 border-gray-200 px-0 align-top sm:text-base" %>
+  <%= form.text_area :body, rows: 3,  placeholder: placeholder, maxlength: 250, class: "w-full resize-none border-x-0 border-t-0 border-gray-200 px-0 align-top sm:text-base" %>
   <div class="flex items-center justify-end gap-2 py-3">
     <%= submit_tag "Post", class: "rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700" %>
   </div>
