@@ -4,9 +4,10 @@
 
 @layer components {
     .form-label {
-        @apply block text-sm font-medium text-gray-700
-    },
+        @apply block text-sm font-medium text-gray-700;
+    }
+    ,
     .form-field {
-        @apply mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm
+        @apply mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm focus:border-sky-800 focus:outline-none focus:ring-0 focus:border-2;
     }
 }

@@ -2,7 +2,7 @@
   <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
     <section class="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
       <%= image_tag "background.jpg", class: "absolute inset-0 h-full w-full object-cover opacity-80" %>
-      
+
       <div class="hidden lg:relative lg:block lg:p-12">
         <a class="block text-white" href="#">
           <span class="sr-only">Home</span>
@@ -43,7 +43,7 @@
       <div class="max-w-xl lg:max-w-3xl">
         <div class="relative -mt-16 block lg:hidden">
           <a
-            class="inline-flex size-16 items-center justify-center rounded-full bg-white text-blue-600 sm:size-20"
+            class="inline-flex size-16 items-center justify-center rounded-full bg-white text-sky-800 sm:size-20"
             href="#"
           >
             <span class="sr-only">Home</span>
@@ -81,7 +81,7 @@
                   <%= f.label :password, class: "form-label" %>
                   <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
                     <div class="text-sm">
-                      <%= link_to "Forgot your password?",  new_password_path(resource_name), data: { turbo_frame: "_top" }, class: "font-semibold text-blue-600 hover:text-blue-500" %>
+                      <%= link_to "Forgot your password?",  new_password_path(resource_name), data: { turbo_frame: "_top" }, class: "font-semibold text-sky-800 hover:text-sky-600" %>
                     </div>
                   <% end %>
                 </div>
@@ -91,16 +91,16 @@
              </div>
              <% if devise_mapping.rememberable? %>
                 <div class="field flex items-center ml-[0.157rem] col-span-3">
-                  <%= f.check_box :remember_me, class: "w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" %>
+                  <%= f.check_box :remember_me, class: "w-3 h-3 text-sky-800 bg-gray-100 border-gray-300 rounded focus:ring-sky-600 focus:ring-2 dark:bg-gray-700" %>
                   <%= f.label :remember_me, class: "ms-2 text-sm font-medium text-gray-500" %>
                 </div>
              <% end %>
 
               <div class="actions col-span-6 sm:flex sm:items-center sm:gap-4 place-content-between">
-                <%= f.submit "Log in", data: { turbo_frame: "_top"}, class: "inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500" %>
+                <%= f.submit "Log in", data: { turbo_frame: "_top"}, class: "inline-block shrink-0 rounded-md border border-sky-800 bg-sky-800 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-sky-800 focus:outline-none focus:ring active:text-sky-700" %>
                 <p class="mt-4 text-sm text-gray-500 sm:mt-0">
                   Not a member?
-                  <%= link_to "Sign Up", new_user_registration_path, data: { turbo_frame: "_top" }, class: "font-semibold leading-6 text-blue-600 hover:text-blue-500" %>
+                  <%= link_to "Sign Up", new_user_registration_path, data: { turbo_frame: "_top" }, class: "font-semibold leading-6 text-sky-800 hover:text-sky-600" %>
                 </p>
               </div>
             <% end %>
