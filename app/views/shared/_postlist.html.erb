@@ -17,7 +17,7 @@
           <%= link_to post_path(post), data: { turbo_frame: "_top" }, class: "break-words" do %>
               <%= "#{post.body}" %>
             <% if post.photo.attached? %>
-              <%= image_tag post.photo %>
+                <%= image_tag post.photo, class: "mt-2 max-h-[350px]" %>
             <% end %>
           <% end %>
         </p>
