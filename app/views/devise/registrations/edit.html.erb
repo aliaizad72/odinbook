@@ -1,7 +1,7 @@
 <%= render "shared/navbar" %>
 <%= render "shared/flash" %>
 <%= turbo_frame_tag "profile-action" do %>
-    <div class="b-5 md:w-4/5 px-5 mx-auto mt-5">
+    <div class="b-5 md:w-4/5 px-3 mx-auto mt-5">
       <div class="flex items-center justify-between">
         <div class="text-2xl text-gray-800">Edit Profile</div>
         <%= link_to "Back to Profile", profile_path(current_user), data: { turbo: false }, class: "rounded bg-blue-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-blue-700" %>

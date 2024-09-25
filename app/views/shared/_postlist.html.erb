@@ -14,7 +14,12 @@
           <% end %>
         <% end %>
         <p class="text-gray-800">
-          <%= link_to "#{post.body}", post_path(post), data: { turbo_frame: "_top" }, class: "break-words" %>
+          <%= link_to post_path(post), data: { turbo_frame: "_top" }, class: "break-words" do %>
+              <%= "#{post.body}" %>
+            <% if post.photo.attached? %>
+              <%= image_tag post.photo %>
+            <% end %>
+          <% end %>
         </p>
       </div>
       <div class="flex pl-4 pb-1 gap-2 text-slate-600 text-xs">
