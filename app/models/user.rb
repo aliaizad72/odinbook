@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[google_oauth2]
 
+  after_create :send_welcome_email
+
   has_one_attached :avatar
 
   has_many :posts, dependent: :destroy
@@ -21,4 +23,8 @@ class User < ApplicationRecord
   has_many :followers, through: :followers_rel, dependent: :destroy
 
   validates :username, presence: true, uniqueness: true, length: { maximum: 15 }
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome_email.deliver_now
+  end
 end

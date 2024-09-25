@@ -54,6 +54,7 @@ group :development do
   gem "web-console"
   gem "guard", "~> 2.18"
   gem "guard-minitest", "~> 2.4"
+  gem "letter_opener"
 end
 
 group :test do

@@ -6,6 +6,7 @@ class PostsController < ApplicationController
     @comment = Comment.new
     @comments = @post.comments.reverse
   end
+
   def create
     @post = Post.new(post_params)
     flash[:notice] = "Cannot post empty contents :/" if @post.invalid?
