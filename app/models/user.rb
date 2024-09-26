@@ -24,9 +24,33 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true, format: { with: /\A[a-z0-9_.-]{3,16}\z/, message: "must be of length 3 - 16 characters. Only special characters '-', '_', '.' allowed." }
 
+  def self.from_omniauth(access_token)
+    data = access_token.info
+    user = User.where(email: data["email"]).first
+
+    unless user
+      user = User.create(
+        username: data['email'].split('@')[0],
+        email: data['email'],
+        password: Devise.friendly_token[0, 20]
+      )
+      user.attach_avatar(data['image'])
+    end
+    user
+  end
+
+  def attach_avatar(avatar_url)
+      avatar_type = "image/png"
+      avatar = URI.parse(avatar_url).open
+      avatar_name = File.basename(avatar_url)
+
+      self.avatar.attach(io: avatar, filename: avatar_name, content_type: avatar_type)
+  end
+
   private
 
   def send_welcome_email
     UserMailer.with(user: self).welcome_email.deliver_now
   end
+
 end
