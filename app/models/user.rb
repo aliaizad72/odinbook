@@ -22,7 +22,9 @@ class User < ApplicationRecord
   has_many :followers_rel, foreign_key: :following_id, class_name: "Follow"
   has_many :followers, through: :followers_rel, dependent: :destroy
 
-  validates :username, presence: true, uniqueness: true, length: { maximum: 15 }
+  validates :username, presence: true, uniqueness: true, format: { with: /\A[a-z0-9_.-]{3,16}\z/, message: "must be of length 3 - 16 characters. Only special characters '-', '_', '.' allowed." }
+
+  private
 
   def send_welcome_email
     UserMailer.with(user: self).welcome_email.deliver_now
