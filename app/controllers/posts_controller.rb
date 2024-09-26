@@ -14,6 +14,12 @@ class PostsController < ApplicationController
     redirect_back_or_to root_path
   end
 
+  def destroy
+    @post = Post.find_by(id: params[:id])
+    @post.destroy
+    redirect_to root_path
+  end
+
   def liked_by
     @post = Post.find_by(id: params[:id])
   end

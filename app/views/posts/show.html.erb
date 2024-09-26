@@ -29,6 +29,9 @@
         <% else %>
           <%= link_to "Like", like_path(@post), data: { turbo_method: :post }, class: "transition hover:text-sky-800" %>
         <% end %>
+        <% if @post.user == current_user %>
+          <%= link_to "Delete", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?", turbo_frame: "_top" }, class: "transition hover:text-sky-800" %>
+        <% end %>
       </div>
       <div class="text-base text-slate-600 font-light md:p-0">
         <%= @post.created_at.strftime("%H:%M, #{@post.created_at.day.ordinalize} %B %Y") %>
