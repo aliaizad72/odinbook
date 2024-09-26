@@ -34,26 +34,26 @@
         <% end %>
         <div class="col-span-6">
           <div class="field flex items-center justify-between">
-            <%= f.label :password, class: "form-label" %>
+            <%= f.label :password, class: "form-label #{"hidden" if current_user.omniauthed}" %>
             <% if @minimum_password_length %>
-              <span class="block text-sm font-medium leading-6 text-gray-400"><%= @minimum_password_length %> characters minimum</span>
+              <span class="block text-sm font-medium leading-6 text-gray-400 <%= "hidden" if current_user.omniauthed %>"><%= @minimum_password_length %> characters minimum</span>
             <% end %>
           </div>
           <div>
-            <%= f.password_field :password, autocomplete: "new-password", class: "form-field", placeholder: "Leave blank if you don't want to change it" %>
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-field #{"hidden" if current_user.omniauthed}", placeholder: "Leave blank if you don't want to change it" %>
           </div>
         </div>
 
         <div class="field col-span-6">
-          <%= f.label :password_confirmation, class: "form-label" %>
+          <%= f.label :password_confirmation, class: "form-label #{"hidden" if current_user.omniauthed}" %>
           <div>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-field" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-field #{"hidden" if current_user.omniauthed}" %>
           </div>
         </div>
 
         <div class="field col-span-6">
-          <%= f.label :current_password, class: "form-label" %>
-          <%= f.password_field :current_password, required: true, autocomplete: "current-password", class: "form-field", placeholder: "Current password required to make changes" %>
+          <%= f.label :current_password, class: "form-label #{"hidden" if current_user.omniauthed}" %>
+          <%= f.password_field :current_password, autocomplete: "current-password", class: "form-field #{"hidden" if current_user.omniauthed}", placeholder: "Current password required to make changes" %>
         </div>
 
         <div class="actions">

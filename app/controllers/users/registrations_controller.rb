@@ -51,8 +51,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   protected
+
   def after_update_path_for(resource)
     sign_in_after_change_password? ? profile_path(current_user) : new_session_path(resource_name)
+  end
+
+  def update_resource(resource, params)
+    if current_user.omniauthed
+      params.delete(:current_password)
+      resource.update_without_password(params)
+    else
+      resource.update_with_password(params)
+    end
   end
 
   # The path used after sign up.

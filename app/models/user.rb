@@ -30,11 +30,12 @@ class User < ApplicationRecord
 
     unless user
       user = User.create(
-        username: data['email'].split('@')[0],
-        email: data['email'],
-        password: Devise.friendly_token[0, 20]
+        username: data["email"].split("@")[0],
+        email: data["email"],
+        password: Devise.friendly_token[0, 20],
+        omniauthed: true
       )
-      user.attach_avatar(data['image'])
+      user.attach_avatar(data["image"])
     end
     user
   end
@@ -52,5 +53,4 @@ class User < ApplicationRecord
   def send_welcome_email
     UserMailer.with(user: self).welcome_email.deliver_now
   end
-
 end
