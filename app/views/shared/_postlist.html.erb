@@ -1,11 +1,11 @@
 <h2 class="text-2xl text-gray-800 pb-3"><%= list_title %></h2>
 <% if list.count.zero? %>
-  <div class="notice p-4 m-2 mx-auto text-sm text-blue-800 rounded-lg bg-blue-50">Currently no posts :/</div>
+  <div class="notice p-4 m-2 mx-auto text-sm text-sky-800 rounded-lg bg-sky-50">Currently no posts :/</div>
 <% else %>
   <div class="relative flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg">
     <% list.each_with_index do |post, ind| %>
       <div class="p-4 pb-2 flex flex-col gap-0.5 justify-center <%= "border-t-2 border-slate-100" unless ind.zero?%>">
-        <%= link_to profile_path(post.user), class: "flex items-center justify-between text-gray-700 text-sm transition hover:text-blue-700" do %>
+        <%= link_to profile_path(post.user), class: "flex items-center justify-between text-gray-700 text-sm transition hover:text-sky-800" do %>
           <p><%= "@#{post.user.username}" %></p>
           <% if post.user.avatar.attached? %>
             <%= image_tag post.user.avatar.variant(resize_to_fill: [32, 32]).processed, class: "rounded-full" %>
@@ -23,17 +23,17 @@
         </p>
       </div>
       <div class="flex pl-4 pb-1 gap-2 text-slate-600 text-xs">
-        <%= link_to "#{pluralize(post.likes.count, 'like')}", post_path(post), class: "transition hover:text-blue-700" %>
-        <%= link_to "#{pluralize(post.comments.count, 'comment')}", post_path(post), class: "transition hover:text-blue-700" %>
+        <%= link_to "#{pluralize(post.likes.count, 'like')}", post_path(post), class: "transition hover:text-sky-800" %>
+        <%= link_to "#{pluralize(post.comments.count, 'comment')}", post_path(post), class: "transition hover:text-sky-800" %>
       </div>
       <div class="min-[370px]:flex justify-between mx-3 border-t border-slate-200 pb-3 pt-2 px-1">
         <div class="flex gap-3 text-sm text-slate-600">
           <% if current_user.liked_posts.include?(post) %>
-            <%= link_to "Unlike", unlike_path(post), data: { turbo_method: :delete }, class: " text-blue-700 transition hover:text-slate-600" %>
+            <%= link_to "Unlike", unlike_path(post), data: { turbo_method: :delete }, class: " text-sky-800 transition hover:text-slate-600" %>
           <% else %>
-            <%= link_to "Like", like_path(post), data: { turbo_method: :post }, class: "transition hover:text-blue-700" %>
+            <%= link_to "Like", like_path(post), data: { turbo_method: :post }, class: "transition hover:text-sky-800" %>
           <% end %>
-          <%= link_to "Comment", post_path(post), class: "transition hover:text-blue-700" %>
+          <%= link_to "Comment", post_path(post), class: "transition hover:text-sky-800" %>
         </div>
         <div class="text-sm text-slate-600 font-light pt-0">
           <%= post.created_at.strftime("%H:%M, #{post.created_at.day.ordinalize} %B %Y") %>

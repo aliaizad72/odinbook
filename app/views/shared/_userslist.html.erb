@@ -1,12 +1,12 @@
 <h2 class="text-2xl text-gray-800 pb-3"><%= list_title %></h2>
 <% if list.empty? %>
-  <div class="notice p-4 m-2 mx-auto text-sm text-blue-800 rounded-lg bg-blue-50"><%= message %></div>
+  <div class="notice p-4 m-2 mx-auto text-sm text-sky-800 rounded-lg bg-sky-50"><%= message %></div>
 <% else %>
   <div class="relative flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg">
     <div class="mx-3 mb-0 pt-3 pb-3 px-1">
       <% list.each do |user| %>
         <div class="text-sm text-gray-700 border-b border-slate-200 py-2 flex justify-between">
-          <%= link_to profile_path(user), data: { turbo_frame: "_top" }, class: "flex items-center justify-start gap-2 transition hover:text-blue-700" do %>
+          <%= link_to profile_path(user), data: { turbo_frame: "_top" }, class: "flex items-center justify-start gap-2 transition hover:text-sky-800" do %>
             <p><%= "@#{user.username}" %></p>
             <% if user.avatar.attached? %>
               <%= image_tag user.avatar.variant(resize_to_fill: [19.2, 19.2]).processed, class: "rounded-full" %>
@@ -15,7 +15,7 @@
             <% end %>
           <% end %>
           <% if current_user.followings.exclude?(user) && current_user != user %>
-            <%= button_to "Follow", follow_path(user), data: { turbo: false }, class: "transition hover:text-blue-700" %>
+            <%= button_to "Follow", follow_path(user), data: { turbo: false }, class: "transition hover:text-sky-800" %>
           <% end %>
         </div>
       <% end %>

@@ -1,6 +1,6 @@
 <header class="bg-white">
   <div class="mx-auto flex h-16 w-full md:w-4/5 items-center gap-6 px-5 ">
-    <a class="block text-blue-600" href="/">
+    <a class="block text-sky-800" href="/">
       <span class="sr-only">Home</span>
       <svg class="h-8" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -12,7 +12,7 @@
 
     <div class="flex flex-1 items-center justify-end gap-4 md:gap-8">
       <nav aria-label="Global" class="md:block">
-        <%= link_to profile_path(current_user), class: "transition hover:fill-blue-500 hover:text-blue-700 text-gray-800 text-base" do %>
+        <%= link_to profile_path(current_user), class: "transition hover:fill-sky-700 hover:text-sky-800 text-gray-800 text-base" do %>
         <ul class="flex items-center gap-2 text-sm">
           <% if current_user.avatar.attached? %>
             <%= image_tag current_user.avatar.variant(resize_to_fill: [36, 36]).processed, class: "rounded-full" %>
@@ -29,7 +29,7 @@
       <div class="flex items-center gap-4">
         <div class="sm:flex sm:gap-4">
           <% if user_signed_in? %>
-            <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500" %>
+            <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "inline-block shrink-0 rounded-md border border-sky-800 bg-sky-800 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-transparent hover:text-sky-800 focus:outline-none focus:ring active:text-sky-700" %>
           <% else %>
           <% end %>
         </div>

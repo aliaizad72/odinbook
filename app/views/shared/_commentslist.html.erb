@@ -1,11 +1,11 @@
 <h2 class="text-2xl text-gray-800 pb-3">Comments</h2>
   <% if @comments.count.zero? %>
-    <div class="notice p-4 m-2 mx-auto text-sm text-blue-800 rounded-lg bg-blue-50">Currently no comments :/</div>
+    <div class="notice p-4 m-2 mx-auto text-sm text-sky-800 rounded-lg bg-sky-50">Currently no comments :/</div>
   <% else %>
     <div class="relative flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg">
       <% @comments.each_with_index do |comment, ind| %>
         <div class="p-4 pb-2 flex flex-col gap-0.5 justify-center <%= "border-t-2 border-slate-100" unless ind.zero?%>">
-          <%= link_to profile_path(comment.user), class: "flex items-center justify-between text-gray-700 text-sm transition hover:text-blue-700" do %>
+          <%= link_to profile_path(comment.user), class: "flex items-center justify-between text-gray-700 text-sm transition hover:text-sky-800" do %>
             <p><%= "@#{comment.user.username}" %></p>
             <% if comment.user.avatar.attached? %>
               <%= image_tag comment.user.avatar.variant(resize_to_fill: [32, 32]).processed, class: "rounded-full" %>

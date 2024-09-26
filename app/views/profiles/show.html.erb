@@ -16,12 +16,12 @@
         <div class="max-[310px]:mt-4">
           <% if current_user != @user %>
             <% if current_user.followings.include?(@user)  %>
-              <%= link_to "Unfollow", unfollow_path(@user), data: { turbo_method: :delete }, class: "rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700" %>
+              <%= button_to "Unfollow", unfollow_path(@user), method: :delete, class: "rounded bg-sky-700 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-transparent hover:text-sky-800 focus:outline-none focus:ring active:text-sky-700 border border-sky-800" %>
             <% else %>
-              <%= button_to "Follow", follow_path(@user), data: { turbo: false }, class: "rounded bg-blue-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-blue-700"%>
+              <%= button_to "Follow", follow_path(@user), data: { turbo: false }, class: "rounded bg-sky-700 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-transparent hover:text-sky-800 focus:outline-none focus:ring active:text-sky-700 border border-sky-800"%>
             <% end %>
           <% else %>
-            <%= link_to "Edit Profile", edit_user_registration_path, data: { turbo_frame: "_top" }, class: "rounded bg-blue-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-blue-700"  %>
+        <%= button_to "Edit Profile", edit_user_registration_path, method: :get, data: { turbo_frame: "_top" }, class: "rounded bg-sky-700 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-transparent hover:text-sky-800 focus:outline-none focus:ring active:text-sky-700 border border-sky-800"  %>
           <% end %>
         </div>
 
@@ -31,10 +31,10 @@
           <%= "#{pluralize(@user.posts.count, "Post")}" %>
         </div>
         <div>
-          <%= link_to "#{pluralize(@user.followers.count, "Follower")}", profile_path(@user), data: { turbo_frame: "list-region" }, class: "transition hover:text-blue-700" %>
+          <%= link_to "#{pluralize(@user.followers.count, "Follower")}", profile_path(@user), data: { turbo_frame: "list-region" }, class: "transition hover:text-sky-800" %>
         </div>
         <div>
-          <%= link_to "#{pluralize(@user.followings.count, "Following")}", followings_profile_path(@user), data: { turbo_frame: "list-region" }, class: "transition hover:text-blue-700" %>
+          <%= link_to "#{pluralize(@user.followings.count, "Following")}", followings_profile_path(@user), data: { turbo_frame: "list-region" }, class: "transition hover:text-sky-800" %>
         </div>
       </div>
   </div>

@@ -1,9 +1,9 @@
 <%= form_with model: model, class: "overflow-hidden", data: { controller: "post" } do |form| %>
-  <%= form.text_area :body, rows: 3, placeholder: placeholder, maxlength: 250, class: "w-full resize-none border-x-0 border-t-0 border-gray-200 px-0 align-top sm:text-base" %>
-  <%= form.file_field :photo, 'data-post-target' => "photo" ,class: "hidden mt-3 w-full rounded-md focus:outline-none border border-gray-200 text-sm text-gray-500 file:me-4 file:m-2 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-700 file:disabled:opacity-50 file:disabled:pointer-events-none" %>
+  <%= form.text_area :body, rows: 3, placeholder: placeholder, autofocus: true, maxlength: 250, class: "w-full resize-none border-x-0 border-t-0 border-gray-200 px-0 align-top focus:border-sky-800 focus:ring-0" %>
+  <%= form.file_field :photo, 'data-post-target' => "photo" ,class: "hidden mt-3 w-full rounded-md focus:outline-none border border-gray-200 text-sm text-gray-500 file:me-4 file:m-2 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-sky-700 file:text-white hover:file:bg-transparent file:disabled:opacity-50 file:disabled:pointer-events-none file:transition hover:file:text-sky-800 file:border file:border-sky-800" %>
   <div class="flex items-center justify-between gap-2 py-3">
-    <p href="" class="transition hover:text-blue-700 text-gray-500" data-action="click->post#showfield" data-post-target="showlink">Upload Photo</p>
-    <p href="" class="hidden transition hover:text-blue-700 text-gray-500" data-action="click->post#hidefield" data-post-target="hidelink">Close</p>
-    <%= submit_tag "Post", class: "rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700" %>
+    <p href="" class="transition hover:text-sky-800 text-gray-500" data-action="click->post#showfield" data-post-target="showlink">Upload Photo</p>
+    <p href="" class="hidden transition hover:text-sky-800 text-gray-500" data-action="click->post#hidefield" data-post-target="hidelink">Close</p>
+    <%= submit_tag "Post", class: "rounded bg-sky-700 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-transparent hover:text-sky-800 focus:outline-none focus:ring active:text-sky-700 border border-sky-800" %>
   </div>
 <% end %>
