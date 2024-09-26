@@ -53,7 +53,7 @@
 
         <div class="field col-span-6 <%= "hidden" if current_user.omniauthed %>">
           <%= f.label :current_password, class: "form-label" %>
-          <%= f.password_field :current_password, required: true, autocomplete: "current-password", class: "form-field", placeholder: "Current password required to make changes" %>
+          <%= f.password_field :current_password, autocomplete: "current-password", class: "form-field", placeholder: "Current password required to make changes" %>
         </div>
 
         <div class="actions">

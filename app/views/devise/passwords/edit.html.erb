@@ -40,7 +40,7 @@
     <main
       class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6"
     >
-      <div class="max-w-xl lg:max-w-3xl">
+      <div class="max-w-xl lg:max-w-3xl flex-1">
           <div class="relative -mt-16 block lg:hidden">
                     <a
                       class="inline-flex size-16 items-center justify-center rounded-full bg-white text-sky-800 sm:size-20"
@@ -91,21 +91,18 @@
               </div>
             </div>
 
-            <div class="actions">
-              <%= f.submit "Change my password", class: "inline-block shrink-0 rounded-md border border-sky-800 bg-sky-800 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-sky-800 focus:outline-none focus:ring active:text-sky-700" %>
-            </div>
-
-            <div class="actions col-span-6 place-content-between">
-                <p class="mt-4 text-sm text-gray-500">
-                  Not a member?
-                  <%= link_to "Sign Up", new_user_registration_path, class: "font-semibold leading-6 text-sky-800 hover:text-sky-600" %>
-                </p>
-                <p class="mt-4 text-sm text-gray-500">
-                  Already a member?
-                  <%= link_to "Sign In", new_user_session_path, class: "font-semibold leading-6 text-sky-800 hover:text-sky-600" %>
-                </p>
+            <div class="actions col-span-6">
+              <%= f.submit "Change my password", class: "w-full inline-block shrink-0 rounded-md border border-sky-800 bg-sky-800 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-sky-800 focus:outline-none focus:ring active:text-sky-700" %>
             </div>
           <% end %>
+          <p class="mt-4 text-sm text-gray-500">
+            Not a member?
+            <%= link_to "Sign Up", new_user_registration_path, class: "font-semibold leading-6 text-sky-800 hover:text-sky-600" %>
+          </p>
+          <p class="mt-4 text-sm text-gray-500">
+            Already a member?
+            <%= link_to "Sign In", new_user_session_path, class: "font-semibold leading-6 text-sky-800 hover:text-sky-600" %>
+          </p>
       </div>
     </main>
   </div>
