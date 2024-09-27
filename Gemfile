@@ -72,3 +72,5 @@ gem "omniauth-google-oauth2", "~> 1.2"
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 
 gem "open-uri", "~> 0.4.1"
+
+gem "local_time", "~> 3.0"

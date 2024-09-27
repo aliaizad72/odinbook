@@ -26,7 +26,7 @@
         <%= link_to "#{pluralize(post.likes.count, 'like')}", post_path(post), class: "transition hover:text-sky-800" %>
         <%= link_to "#{pluralize(post.comments.count, 'comment')}", post_path(post), class: "transition hover:text-sky-800" %>
       </div>
-      <div class="min-[370px]:flex justify-between mx-3 border-t border-slate-200 pb-3 pt-2 px-1">
+      <div class="md:flex justify-between mx-3 border-t border-slate-200 pb-3 pt-2 px-1">
         <div class="flex gap-3 text-sm text-slate-600">
           <% if current_user.liked_posts.include?(post) %>
             <%= link_to "Unlike", unlike_path(post), data: { turbo_method: :delete }, class: " text-sky-800 transition hover:text-slate-600" %>
@@ -38,8 +38,8 @@
             <%= link_to "Delete", post_path(post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?", turbo_frame: "_top" }, class: "transition hover:text-sky-800" %>
           <% end %>
         </div>
-        <div class="text-sm text-slate-600 font-light pt-0">
-          <%= post.created_at.strftime("%H:%M, #{post.created_at.day.ordinalize} %B %Y") %>
+        <div class="text-sm text-slate-600 font-light md:pt-0 pt-1">
+          <%= local_time post.created_at, "%H:%M, #{post.created_at.day.ordinalize} %B %Y" %>
         </div>
       </div>
     <% end %>
