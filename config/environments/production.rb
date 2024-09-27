@@ -2,10 +2,10 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.hosts << ENV['DEVELOPMENT_HOSTS']
+  config.hosts << ENV["DEVELOPMENT_HOSTS"]
 
   # action mailer devise
-  # config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  config.action_mailer.default_url_options = { host: "https://odinbook-production-6f78.up.railway.app/", port: 8080 }
   # Code is not reloaded between requests.
   config.enable_reloading = false
 
