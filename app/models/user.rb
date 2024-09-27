@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[google_oauth2]
 
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
 
   has_one_attached :avatar
 
@@ -50,7 +50,7 @@ class User < ApplicationRecord
 
   private
 
-  def send_welcome_email
-    UserMailer.with(user: self).welcome_email.deliver_now
-  end
+  # def send_welcome_email
+  #   UserMailer.with(user: self).welcome_email.deliver_now
+  # end
 end
