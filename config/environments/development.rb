@@ -46,7 +46,7 @@ Rails.application.configure do
     port:            587,
     domain:          "http://127.0.0.1:3000",
     user_name:       "aliaizad72@gmail.com",
-    password:        "kmglkdmzubmyrbcp",
+    password:        ENV["GOOGLE_SMTP_PASSWORD"],
     authentication:  "plain",
     enable_starttls: true,
     open_timeout:    5,
