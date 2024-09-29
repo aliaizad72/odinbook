@@ -44,13 +44,14 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:         "smtp.gmail.com",
     port:            587,
-    domain:          "http://127.0.0.1:3000",
+    domain:          "localhost",
     user_name:       "aliaizad72@gmail.com",
-    password:        ENV["GOOGLE_SMTP_PASSWORD"],
+    password:        ENV["GMAIL_SMTP_PASSWORD"],
     authentication:  "plain",
     enable_starttls: true,
     open_timeout:    5,
-    read_timeout:    5 }
+    read_timeout:    5
+  }
 
   # Disable caching for Action Mailer templates even if Action Controller
   # caching is enabled.
