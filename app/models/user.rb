@@ -22,7 +22,7 @@ class User < ApplicationRecord
   has_many :followers_rel, foreign_key: :following_id, class_name: "Follow"
   has_many :followers, through: :followers_rel, dependent: :destroy
 
-  validates :username, presence: true, uniqueness: true, format: { with: /\A[a-z0-9_.-]{3,16}\z/, message: "must be of length 3 - 16 characters. Only special characters '-', '_', '.' allowed." }
+  validates :username, presence: true, uniqueness: true, format: { with: /\A[A-Za-z0-9_.-]{3,16}\z/, message: "must be of length 3 - 16 characters. Only special characters '-', '_', '.' allowed." }
 
   def self.from_omniauth(access_token)
     data = access_token.info
