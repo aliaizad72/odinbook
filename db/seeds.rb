@@ -9,11 +9,8 @@
 #   end
 User.create(
   [
-    { username: "ali", email: "ali@aizad.com", password: 1234567 },
-    { username: "ochocinco", email: "ocho@cinco.com", password: 1234567 },
-    { username: "raffiqi", email: "raffiqi@email.com", password: 1234567 },
-    { username: "aleeqa", email: "aleeqa@email.com", password: 1234567 },
-    { username: "aryan", email: "arayan@email.com", password: 1234567}
+    { username: "test", email: "test@odinbook.com", password: 1234567 },
+    { username: "dev", email: "dev@odinbook.com", password: "JoshAllen17" }
   ]
 )
 
