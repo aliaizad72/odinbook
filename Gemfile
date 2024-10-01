@@ -74,3 +74,5 @@ gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem "open-uri", "~> 0.4.1"
 
 gem "local_time", "~> 3.0"
+
+gem "google-cloud-storage", "~> 1.52"
