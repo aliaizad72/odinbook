@@ -2,15 +2,15 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.hosts << ENV["RAILWAY_PUBLIC_DOMAIN"]
+  # config.hosts << "0.0.0.0"
 
   # action mailer devise
-  config.action_mailer.default_url_options = { host: ENV["RAILWAY_PUBLIC_DOMAIN"], port: 8080 }
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:         "smtp.gmail.com",
     port:            587,
-    domain:          ENV["RAILWAY_PUBLIC_DOMAIN"],
+    domain:          "localhost",
     user_name:       "aliaizad72@gmail.com",
     password:        Rails.application.credentials.dig(:gmail_smtp_password),
     authentication:  "plain",
@@ -51,7 +51,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for Apache
   # config.action_dispatch.x_sendfile_header = "X-Accel-Redirect" # for NGINX
 
-  # Store uploaded files on the local file system (see config/storage.yml for options).
+  # Store uploaded files in Tigris Global Object Storage (see config/storage.yml for options).
   config.active_storage.service = :google
 
   # Mount Action Cable outside main process or domain.

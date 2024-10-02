@@ -76,3 +76,9 @@ gem "open-uri", "~> 0.4.1"
 gem "local_time", "~> 3.0"
 
 gem "google-cloud-storage", "~> 1.52"
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
+
+gem "redis", "~> 5.3"
+
+gem "aws-sdk-s3", "~> 1.166", :require => false
