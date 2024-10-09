@@ -32,8 +32,8 @@
             <%= link_to "Unlike", unlike_path(post), data: { turbo_method: :delete }, class: " text-sky-800 transition hover:text-slate-600" %>
           <% else %>
             <%= link_to "Like", like_path(post), data: { turbo_method: :post }, class: "transition hover:text-sky-800" %>
-          <% end %>
-            <%= link_to "Comment", post_path(post), class: "transition hover:text-sky-800" %>
+          <% end %> 
+            <%= link_to "Comment", post_path(post), data: { turbo_frame: "_top" } , class: "transition hover:text-sky-800" %>
           <% if post.user == current_user %>
             <%= link_to "Delete", post_path(post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?", turbo_frame: "_top" }, class: "transition hover:text-sky-800" %>
           <% end %>
