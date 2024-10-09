@@ -2,7 +2,7 @@
 
 Odinbook is a CRUD web application that mimics common social-media applications such as Facebook or Twitter. 
 
-Deployed on: odinbook-aliaizad.fly.dev
+Deployed on: [odinbook-aliaizad.fly.dev](https://odinbook-aliaizad.fly.dev/) (Instance might take 5 seconds to start)
 
 Odinbook is built on:
 - Full-stack Ruby on Rails with Hotwire & Stimulus on the front-end.
