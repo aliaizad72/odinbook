@@ -116,7 +116,7 @@ GEM
     crass (1.0.6)
     cssbundling-rails (1.4.1)
       railties (>= 6.0.0)
-    date (3.3.4)
+    date (3.4.0)
     debug (1.9.2)
       irb (~> 1.10)
       reline (>= 0.3.8)
@@ -300,7 +300,7 @@ GEM
     omniauth-rails_csrf_protection (1.0.2)
       actionpack (>= 4.2)
       omniauth (~> 2.0)
-    open-uri (0.4.1)
+    open-uri (0.5.0)
       stringio
       time
       uri
@@ -502,7 +502,7 @@ DEPENDENCIES
   local_time (~> 3.0)
   omniauth-google-oauth2 (~> 1.2)
   omniauth-rails_csrf_protection (~> 1.0)
-  open-uri (~> 0.4.1)
+  open-uri (~> 0.5.0)
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.2.1)
