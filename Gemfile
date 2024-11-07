@@ -81,4 +81,4 @@ gem "dockerfile-rails", ">= 1.6", :group => :development
 
 gem "redis", "~> 5.3"
 
-gem "aws-sdk-s3", "~> 1.166", :require => false
+gem "aws-sdk-s3", "~> 1.170", :require => false
